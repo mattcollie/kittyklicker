@@ -22,7 +22,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Kitty count: 0"
+            android:text="@string/kitty_count"
             android:id="@+id/textViewTitle"
             android:layout_below="@+id/linearLayoutTitle"
             android:layout_centerHorizontal="true"
@@ -32,9 +32,18 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayoutSlider"
-        android:layout_alignTop="@+id/linearLayoutTitle"></LinearLayout>
+        android:layout_below="@+id/linearLayoutTitle">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPagerTabs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
 
 </RelativeLayout>
