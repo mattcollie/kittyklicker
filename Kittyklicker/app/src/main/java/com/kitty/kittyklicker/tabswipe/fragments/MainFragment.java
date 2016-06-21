@@ -1,5 +1,6 @@
 package com.kitty.kittyklicker.tabswipe.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,8 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.kitty.kittyklicker.R;
+import com.kitty.kittyklicker.interfaces.IKitty;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +32,10 @@ public class MainFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private IKitty _kittyMain;
+
+    private Activity _activity;
 
     public MainFragment() {
         // Required empty public constructor
@@ -59,6 +66,19 @@ public class MainFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        // handles main kittyklick button
+        ImageButton kittyButtonEvent = (ImageButton) _activity.findViewById(R.id.imageButtonKitty);
+
+        kittyButtonEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(_kittyMain != null) {
+                    _kittyMain.getCount();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -84,6 +104,12 @@ public class MainFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }*/
+
+        _activity = getActivity();
+
+        if((_activity != null) && (_activity instanceof IKitty)) {
+            _kittyMain = (IKitty)_activity;
+        }
     }
 
     @Override
