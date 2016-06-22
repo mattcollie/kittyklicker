@@ -66,26 +66,29 @@ public class MainFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        // handles main kittyklick button
-        ImageButton kittyButtonEvent = (ImageButton) _activity.findViewById(R.id.imageButtonKitty);
-
-        kittyButtonEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(_kittyMain != null) {
-                    _kittyMain.getCount();
-                }
-            }
-        });
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+
+
+        // handles main kittyklick button
+        ImageButton kittyButtonEvent = (ImageButton) view.findViewById(R.id.imageButtonKitty);
+
+        kittyButtonEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(_kittyMain != null) {
+                    _kittyMain.incremementCount();
+                }
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
