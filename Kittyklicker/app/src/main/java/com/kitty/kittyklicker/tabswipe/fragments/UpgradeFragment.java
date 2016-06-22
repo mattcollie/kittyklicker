@@ -1,5 +1,6 @@
 package com.kitty.kittyklicker.tabswipe.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,8 +8,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.kitty.kittyklicker.R;
+import com.kitty.kittyklicker.interfaces.IKitty;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +32,10 @@ public class UpgradeFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private IKitty _kittyMain;
+
+    private Activity _activity;
 
     public UpgradeFragment() {
         // Required empty public constructor
@@ -62,10 +69,24 @@ public class UpgradeFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_upgrade, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_upgrade, container, false);
+
+        // handles upgrade buttons
+        Button upgradeButtonEvent1 = (Button) view.findViewById(R.id.upgradeButton1);
+
+        upgradeButtonEvent1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(_kittyMain != null) {
+                    _kittyMain.buyUpgrade(10, 2);
+                }
+            }
+        });
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -84,6 +105,11 @@ public class UpgradeFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }*/
+        _activity = getActivity();
+
+        if((_activity != null) && (_activity instanceof IKitty)) {
+            _kittyMain = (IKitty)_activity;
+        }
     }
 
     @Override

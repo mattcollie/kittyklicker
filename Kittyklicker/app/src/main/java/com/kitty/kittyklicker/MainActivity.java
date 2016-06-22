@@ -1,15 +1,15 @@
 package com.kitty.kittyklicker;
 
+import android.os.Bundle;
+import android.os.Handler;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
 import com.kitty.kittyklicker.interfaces.IKitty;
 import com.kitty.kittyklicker.tabswipe.adapters.TabsPagerAdapter;
-
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener, IKitty {
 
@@ -18,7 +18,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private ActionBar actionBar;
     private TextView textViewTitle;
 
-    private int _kittyCounter = 0;
+    private double _kittyCounterAccurate = 0;
+    private long _kittyCounter = 0;
+    private double increasePerSec = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +41,53 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         textViewTitle = (TextView) findViewById(R.id.textViewTitle);
         textViewTitle.append(" " + _kittyCounter);
 
+        //starts the Timer
+        timerHandler.postDelayed(timerRunnable, 0);
     }
 
     @Override
-    public int getCount() {
+    public long getCount() {
         return _kittyCounter;
     }
 
     //meme - here come dat kitty; o meow whaddup
     @Override
     public void incremementCount() {
-        _kittyCounter++;
+        _kittyCounterAccurate += 1;
         updateCounter();
     }
 
+    public void buyUpgrade(int upgradeCost, double upgradePerSec) {
+        if (_kittyCounterAccurate >= upgradeCost) {
+            _kittyCounterAccurate -= upgradeCost;
+            increasePerSec += upgradePerSec;
+
+            increasePerSec = Math.round(increasePerSec*10000)/10000.0;  //rounds to 4 d.p
+
+            //upgradeText.setText("Upgrades: " + increasePerSec);
+            updateCounter();
+        }
+    }
+
     private void updateCounter() {
+        _kittyCounter = Math.round(_kittyCounterAccurate);
         textViewTitle.setText("Kitty count: " + _kittyCounter);
     }
+
+    //Timer
+    Handler timerHandler = new Handler();
+    Runnable timerRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+            _kittyCounterAccurate += increasePerSec/10;
+
+            updateCounter();
+
+            timerHandler.postDelayed(this, 100);
+        }
+    };
+
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
