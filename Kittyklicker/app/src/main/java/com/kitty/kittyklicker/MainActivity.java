@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
+import com.kitty.kittyklicker.enums.KittyUpgradeEnum;
 import com.kitty.kittyklicker.interfaces.IKitty;
 import com.kitty.kittyklicker.tabswipe.adapters.TabsPagerAdapter;
 
@@ -57,7 +58,29 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         updateCounter();
     }
 
-    public void buyUpgrade(int upgradeCost, double upgradePerSec) {
+    public void buyUpgrade(KittyUpgradeEnum upgrade){
+        switch(upgrade){
+            case basicKitty:
+                buyUpgrade(10, 2);
+                break;
+            case youngKitty:
+                break;
+            case oldKitty:
+                break;
+            case mediumKitty:
+                break;
+            case advancedKitty:
+                break;
+            case superKitty:
+                break;
+            case extremeKitty:
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void buyUpgrade(int upgradeCost, double upgradePerSec) {
         if (_kittyCounterAccurate >= upgradeCost) {
             _kittyCounterAccurate -= upgradeCost;
             increasePerSec += upgradePerSec;

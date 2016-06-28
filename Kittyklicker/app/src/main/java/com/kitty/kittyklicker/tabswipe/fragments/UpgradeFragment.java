@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.kitty.kittyklicker.R;
+import com.kitty.kittyklicker.enums.KittyUpgradeEnum;
 import com.kitty.kittyklicker.interfaces.IKitty;
 
 /**
@@ -81,7 +82,7 @@ public class UpgradeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(_kittyMain != null) {
-                    _kittyMain.buyUpgrade(10, 2);
+                    _kittyMain.buyUpgrade(KittyUpgradeEnum.basicKitty);
                 }
             }
         });
