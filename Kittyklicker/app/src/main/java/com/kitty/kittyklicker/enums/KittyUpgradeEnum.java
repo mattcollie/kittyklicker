@@ -17,7 +17,7 @@ public enum KittyUpgradeEnum {
 
     WISE_KITTY("Wise kitty", 1400000, 5600.0),
 
-    MASTER_KITTY("Master kitty", 20000000, 3120.0),
+    MASTER_KITTY("Master kitty", 20000000, 31200.0),
 
     KITTY_OVERLORD("Kitty overlord", 330000000, 176000.0);
 

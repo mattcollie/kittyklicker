@@ -4,10 +4,6 @@
     android:layout_height="match_parent"
     tools:context="com.kitty.kittyklicker.tabswipe.fragments.MainFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
     <ImageButton
         android:layout_width="273dp"
         android:layout_height="258dp"
@@ -18,5 +14,16 @@
         android:foreground="@mipmap/ic_launcher"
         android:background="#00ffffff"
         android:contentDescription="@string/cat_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/upgrades"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal|bottom"
+        android:textSize="40dp"
+        android:paddingBottom="40dp"
+        android:textColor="#444444" />
 
 </FrameLayout>

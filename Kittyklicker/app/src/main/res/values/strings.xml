@@ -2,7 +2,7 @@
     <string name="app_name">Kitty klicker</string>
 
     <string name="kitty_count">Kitty count: %1$d</string>
-    <string name="increase_count">Increase per second: %1$.1f</string>
+    <string name="increase_count">Income per second: %1$.1f</string>
 
     <string name="initial_upgrade_button_0">Regular kitty\nCost: 10\nIncome: 0.4/s</string>
     <string name="initial_upgrade_button_1">Young kitty\nCost: 100\nIncome: 4/s</string>
@@ -18,7 +18,8 @@
 
     <string name="initial_upgrade_text">Currently owned: 0\nTotal income: 0/s</string>
     <string name="upgrade_text">Currently owned: %1$d\nTotal income: %2$d/s</string>
-    <string name="upgrade_text_double">Currently owned: %1$d\nTotal: %2$.1f/s</string>
+    <string name="upgrade_text_double">Currently owned: %1$d\nTotal income: %2$.1f/s</string>
 
-    <string name="cat_name">Susie's cat</string>
+    <string name="cat_name">Susie\'s cat</string>
+    <string name="upgrades">Upgrades &gt;</string>
 </resources>

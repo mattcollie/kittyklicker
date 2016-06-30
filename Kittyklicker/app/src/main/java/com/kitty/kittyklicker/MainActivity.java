@@ -12,6 +12,14 @@ import com.kitty.kittyklicker.enums.KittyUpgradeEnum;
 import com.kitty.kittyklicker.interfaces.IKitty;
 import com.kitty.kittyklicker.tabswipe.adapters.TabsPagerAdapter;
 
+/**
+ * The main activity of Kitty Klicker
+ * Manages the fragments and any interactions throughout the program
+ *
+ * @author Mark
+ * @author Matt
+ *
+ */
 @SuppressWarnings("deprecation")
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener, IKitty {
 
@@ -134,15 +142,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     };
 
 
-    @SuppressWarnings("deprecation")
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {}
 
-    @SuppressWarnings("deprecation")
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {}
 
-    @SuppressWarnings("deprecation")
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {}
 }

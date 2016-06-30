@@ -15,6 +15,10 @@ import com.kitty.kittyklicker.interfaces.IKitty;
 
 /**
  * MainFragment handles the main kitty klick Button
+ *
+ * @author Mark
+ * @author Matt
+ *
  */
 public class MainFragment extends Fragment {
 

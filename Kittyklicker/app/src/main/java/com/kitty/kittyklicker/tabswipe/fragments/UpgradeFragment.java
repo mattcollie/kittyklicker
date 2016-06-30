@@ -19,6 +19,10 @@ import com.kitty.kittyklicker.interfaces.IKitty;
 
 /**
  * UpgradeFragment handles the upgrade Buttons, their dynamic pricing, and associated TextViews
+ *
+ * @author Mark
+ * @author Matt
+ *
  */
 public class UpgradeFragment extends Fragment {
 
@@ -110,7 +114,7 @@ public class UpgradeFragment extends Fragment {
                         double amountPerSec = upgrade.getAmountPerSec();
                         double totalIncomePerSec = Math.round(upgrade.getAmountPerSec() * upgradeAmount * 10000)/10000.0;    // Rounds to 4 d.p to remove double inaccuracies
 
-                        if((int) totalIncomePerSec == totalIncomePerSec) {                              // If whole number, no need to display decimal places
+                        if(((int) totalIncomePerSec == totalIncomePerSec) && (amountPerSec >= 1)) {                              // If whole number, no need to display decimal places
                             upgradeButtons[upgradeIndex].setText(getString(R.string.upgrade_button, upgradeName, upgradeCost, (int) (amountPerSec)));
                             upgradeTextViews[upgradeIndex].setText(getString(R.string.upgrade_text, upgradeAmount, (int) (totalIncomePerSec)));
                         } else {
