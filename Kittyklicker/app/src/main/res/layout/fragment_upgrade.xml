@@ -7,14 +7,188 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="UPGRADE FRAGMENT" />
+        android:layout_height="match_parent" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upgrade 1"
-        android:id="@+id/upgradeButton1"
-        android:layout_gravity="center_horizontal|top" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            android:id="@+id/upgradeTable">
+
+            <TableRow
+                 android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_button_0"
+                    android:id="@+id/upgradeButton0"
+                    android:layout_gravity="start"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_text"
+                    android:id="@+id/upgradeText0"
+                    android:layout_gravity="center_vertical" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_button_1"
+                    android:id="@+id/upgradeButton1"
+                    android:layout_gravity="start"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_text"
+                    android:id="@+id/upgradeText1"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_button_2"
+                    android:id="@+id/upgradeButton2"
+                    android:layout_gravity="start"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_text"
+                    android:id="@+id/upgradeText2"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_button_3"
+                    android:id="@+id/upgradeButton3"
+                    android:layout_gravity="start"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_text"
+                    android:id="@+id/upgradeText3"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_button_4"
+                    android:id="@+id/upgradeButton4"
+                    android:layout_gravity="start"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_text"
+                    android:id="@+id/upgradeText4"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_button_5"
+                    android:id="@+id/upgradeButton5"
+                    android:layout_gravity="start"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_text"
+                    android:id="@+id/upgradeText5"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_button_6"
+                    android:id="@+id/upgradeButton6"
+                    android:layout_gravity="start"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_text"
+                    android:id="@+id/upgradeText6"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+
+            <TableRow
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_button_7"
+                    android:id="@+id/upgradeButton7"
+                    android:layout_gravity="start"
+                    android:textAlignment="viewStart" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/initial_upgrade_text"
+                    android:id="@+id/upgradeText7"
+                    android:layout_gravity="center_vertical" />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
 
 </FrameLayout>

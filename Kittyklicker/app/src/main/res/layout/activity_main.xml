@@ -10,7 +10,7 @@
     tools:context="com.kitty.kittyklicker.MainActivity">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayoutTitle"
@@ -24,9 +24,18 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/kitty_count"
             android:id="@+id/textViewTitle"
-            android:layout_below="@+id/linearLayoutTitle"
             android:layout_centerHorizontal="true"
             android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/increase_count"
+            android:id="@+id/textViewIncrease"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center" />
+
     </LinearLayout>
 
     <LinearLayout

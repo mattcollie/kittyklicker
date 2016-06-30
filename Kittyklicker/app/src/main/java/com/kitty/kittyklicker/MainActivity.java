@@ -14,87 +14,83 @@ import com.kitty.kittyklicker.tabswipe.adapters.TabsPagerAdapter;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener, IKitty {
 
-    private ViewPager viewPager;
-    private TabsPagerAdapter mAdapter;
-    private ActionBar actionBar;
     private TextView textViewTitle;
+    private TextView textViewIncrease;
 
-    private double _kittyCounterAccurate = 0;
-    private long _kittyCounter = 0;
     private double increasePerSec = 0;
+    private double kittyCounterAccurate = 0;
+    private long kittyCounter = 0;
+
+    private int[] upgradeAmounts = new int[KittyUpgradeEnum.values().length];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // get viewpager and action bar and tab adapter
-        viewPager = (ViewPager) findViewById(R.id.viewPagerTabs);
+
+        // Get viewpager and action bar and tab adapter
+        ActionBar actionBar;
+        TabsPagerAdapter mAdapter;
+        ViewPager viewPager;
+
         actionBar = getActionBar();
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
+        viewPager = (ViewPager) findViewById(R.id.viewPagerTabs);
 
-        // set the view pager adapter and action bar settings
+
+        // Set the view pager adapter and action bar settings
         viewPager.setAdapter(mAdapter);
         actionBar.setHomeButtonEnabled(false);
         actionBar.hide();
 
-        // find text control and set counter to the value of the count
+        // Find text controls of counter and increase
         textViewTitle = (TextView) findViewById(R.id.textViewTitle);
-        textViewTitle.append(" " + _kittyCounter);
+        textViewIncrease = (TextView) findViewById(R.id.textViewIncrease);
 
-        //starts the Timer
+        textViewTitle.setText(getString(R.string.kitty_count, kittyCounter));
+        textViewIncrease.setText(getString(R.string.increase_count, increasePerSec));
+
+        // Initialise upgradeAmounts
+        for(int i = 0; i < upgradeAmounts.length; i++) {
+            upgradeAmounts[i] = 0;
+        }
+
+        // Start the Timer
         timerHandler.postDelayed(timerRunnable, 0);
     }
 
-    @Override
-    public long getCount() {
-        return _kittyCounter;
+    public int getUpgradeAmount(int upgradeIndex) {
+        return upgradeAmounts[upgradeIndex];
     }
 
-    //meme - here come dat kitty; o meow whaddup
     @Override
-    public void incremementCount() {
-        _kittyCounterAccurate += 1;
+    public void incrementCount() {
+        kittyCounterAccurate += Math.max(1, (int) (increasePerSec/10));
         updateCounter();
     }
 
-    public void buyUpgrade(KittyUpgradeEnum upgrade){
-        switch(upgrade){
-            case basicKitty:
-                buyUpgrade(10, 2);
-                break;
-            case youngKitty:
-                break;
-            case oldKitty:
-                break;
-            case mediumKitty:
-                break;
-            case advancedKitty:
-                break;
-            case superKitty:
-                break;
-            case extremeKitty:
-                break;
-            default:
-                break;
-        }
-    }
+    public void buyUpgrade(KittyUpgradeEnum upgrade, int upgradeIndex) {
+        int upgradeCost = (int) (upgrade.getCost() * Math.pow(1.15, upgradeAmounts[upgradeIndex]));
+        double upgradePerSec = upgrade.getAmountPerSec();
 
-    private void buyUpgrade(int upgradeCost, double upgradePerSec) {
-        if (_kittyCounterAccurate >= upgradeCost) {
-            _kittyCounterAccurate -= upgradeCost;
+        if (kittyCounterAccurate >= upgradeCost) {
+            kittyCounterAccurate -= upgradeCost;
+
+            upgradeAmounts[upgradeIndex]++;
+
             increasePerSec += upgradePerSec;
 
-            increasePerSec = Math.round(increasePerSec*10000)/10000.0;  //rounds to 4 d.p
+            increasePerSec = Math.round(increasePerSec*10000)/10000.0;  //rounds to 4 d.p to remove double inaccuracies
 
-            //upgradeText.setText("Upgrades: " + increasePerSec);
+            textViewIncrease.setText(getString(R.string.increase_count, increasePerSec));
             updateCounter();
         }
     }
 
     private void updateCounter() {
-        _kittyCounter = Math.round(_kittyCounterAccurate);
-        textViewTitle.setText("Kitty count: " + _kittyCounter);
+        kittyCounter = Math.round(kittyCounterAccurate);
+        textViewTitle.setText(getString(R.string.kitty_count, kittyCounter));
     }
 
     //Timer
@@ -103,7 +99,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
         @Override
         public void run() {
-            _kittyCounterAccurate += increasePerSec/10;
+            kittyCounterAccurate += increasePerSec/10;
 
             updateCounter();
 
