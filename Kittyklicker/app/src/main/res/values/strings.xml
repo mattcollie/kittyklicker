@@ -13,7 +13,8 @@
     <string name="initial_upgrade_button_6">Master kitty\nCost: 20000000\nIncome: 31200/s</string>
     <string name="initial_upgrade_button_7">Kitty overlord\nCost: 330000000\nIncome: 176000/s</string>
 
-    <string name="upgrade_button">%1$s\nCost: %2$d\nIncome: %3$f/s</string>
+    <string name="upgrade_button">%1$s\nCost: %2$d\nIncome: %3$d/s</string>
+    <string name="upgrade_button_double">%1$s\nCost: %2$d\nIncome: %3$.1f/s</string>
 
     <string name="initial_upgrade_text">Currently owned: 0\nTotal income: 0/s</string>
     <string name="upgrade_text">Currently owned: %1$d\nTotal income: %2$d/s</string>

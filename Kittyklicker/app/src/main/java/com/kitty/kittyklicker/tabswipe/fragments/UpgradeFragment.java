@@ -113,11 +113,12 @@ public class UpgradeFragment extends Fragment {
                         double amountPerSec = upgrade.getAmountPerSec();
                         double totalIncomePerSec = Math.round(upgrade.getAmountPerSec() * upgradeAmount * 10000)/10000.0;    //rounds to 4 d.p to remove double inaccuracies
 
-                        upgradeButtons[upgradeIndex].setText(getString(R.string.upgrade_button, upgradeName, upgradeCost, amountPerSec));
 
-                        if((int) totalIncomePerSec == totalIncomePerSec) {     // If whole number, no need to display .0
+                        if((int) totalIncomePerSec == totalIncomePerSec) {     // If whole number, no need to display decimal places
+                            upgradeButtons[upgradeIndex].setText(getString(R.string.upgrade_button, upgradeName, upgradeCost, (int) (amountPerSec)));
                             upgradeTextViews[upgradeIndex].setText(getString(R.string.upgrade_text, upgradeAmount, (int) (totalIncomePerSec)));
                         } else {
+                            upgradeButtons[upgradeIndex].setText(getString(R.string.upgrade_button_double, upgradeName, upgradeCost, amountPerSec));
                             upgradeTextViews[upgradeIndex].setText(getString(R.string.upgrade_text_double, upgradeAmount, totalIncomePerSec));
                         }
                     }
