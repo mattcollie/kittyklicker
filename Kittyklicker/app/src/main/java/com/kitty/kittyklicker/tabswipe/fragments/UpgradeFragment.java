@@ -116,28 +116,10 @@ public class UpgradeFragment extends Fragment {
                         upgradeButtons[upgradeIndex].setText(getString(R.string.upgrade_button, upgradeName, upgradeCost, amountPerSec));
 
                         if((int) totalIncomePerSec == totalIncomePerSec) {     // If whole number, no need to display .0
-                            upgradeTextViews[upgradeIndex].setText(getString(R.string.upgrade_text, upgradeAmount, totalIncomePerSec));
+                            upgradeTextViews[upgradeIndex].setText(getString(R.string.upgrade_text, upgradeAmount, (int) (totalIncomePerSec)));
                         } else {
                             upgradeTextViews[upgradeIndex].setText(getString(R.string.upgrade_text_double, upgradeAmount, totalIncomePerSec));
                         }
-
-
-
-
-                        //upgradeButtons[upgradeIndex].setText(upgrade.getName() + "\nCost: " + upgradeCost + "\nIncome: " + (int)(upgrade.getAmountPerSec()) + "/s");
-                        //upgradeTextViews[upgradeIndex].setText("Currently owned: " + upgradeAmount + "\nTotal income per second: " + totalIncomePerSec);
-                        /*
-                        if((int) upgrade.getAmountPerSec() == upgrade.getAmountPerSec()) {     // If whole number, no need to display .0
-                            upgradeButtons[upgradeIndex].setText(upgrade.getName() + "\nCost: " + upgradeCost + "\nIncome: " + (int)(upgrade.getAmountPerSec()) + "/s");
-                        } else {
-                            upgradeButtons[upgradeIndex].setText(upgrade.getName() + "\nCost: " + upgradeCost + "\nIncome: " + upgrade.getAmountPerSec() + "/s");
-                        }
-
-                        if((int) totalIncomePerSec == totalIncomePerSec) {     // If whole number, no need to display .0
-                            upgradeTextViews[upgradeIndex].setText("Currently owned: " + upgradeAmount + "\nTotal income per second: " + (int)(totalIncomePerSec));
-                        } else {
-                            upgradeTextViews[upgradeIndex].setText("Currently owned: " + upgradeAmount + "\nTotal income per second: " + totalIncomePerSec);
-                        }*/
                     }
                 }
             });

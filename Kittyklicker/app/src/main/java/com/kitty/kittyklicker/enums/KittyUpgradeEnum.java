@@ -8,7 +8,7 @@ public enum KittyUpgradeEnum {
 
     OLD_KITTY("Old kitty", 1100, 32.0),
 
-    ADVENTURE_KITTY("Adventurous kitty", 12000, 188.0),
+    SNEAKY_KITTY("Sneaky kitty", 12000, 188.0),
 
     SUPER_KITTY("Super kitty", 130000, 1040.0),
 

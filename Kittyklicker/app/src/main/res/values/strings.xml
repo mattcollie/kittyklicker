@@ -2,21 +2,21 @@
     <string name="app_name">Kitty klicker</string>
 
     <string name="kitty_count">Kitty count: %1$d</string>
-    <string name="increase_count">Increase per second: %1$f</string>
+    <string name="increase_count">Increase per second: %1$.1f</string>
 
-    <string name="initial_upgrade_button_0"><b>Regular kitty</b>\nCost: 10\nIncome: 0.4/s</string>
-    <string name="initial_upgrade_button_1"><b>Young kitty</b>\nCost: 100\nIncome: 4/s</string>
-    <string name="initial_upgrade_button_2"><b>Old kitty</b>\nCost: 1100\nIncome: 32/s</string>
-    <string name="initial_upgrade_button_3"><b>Adventurous kitty</b>\nCost: 12000\nIncome: 188/s</string>
-    <string name="initial_upgrade_button_4"><b>Super kitty</b>\nCost: 130000\nIncome: 1040/s</string>
-    <string name="initial_upgrade_button_5"><b>Wise kitty</b>\nCost: 1400000\nIncome: 5600/s</string>
-    <string name="initial_upgrade_button_6"><b>Master kitty</b>\nCost: 20000000\nIncome: 31200/s</string>
-    <string name="initial_upgrade_button_7"><b>Kitty overlord</b>\nCost: 330000000\nIncome: 176000/s</string>
+    <string name="initial_upgrade_button_0">Regular kitty\nCost: 10\nIncome: 0.4/s</string>
+    <string name="initial_upgrade_button_1">Young kitty\nCost: 100\nIncome: 4/s</string>
+    <string name="initial_upgrade_button_2">Old kitty\nCost: 1100\nIncome: 32/s</string>
+    <string name="initial_upgrade_button_3">Sneaky kitty\nCost: 12000\nIncome: 188/s</string>
+    <string name="initial_upgrade_button_4">Super kitty\nCost: 130000\nIncome: 1040/s</string>
+    <string name="initial_upgrade_button_5">Wise kitty\nCost: 1400000\nIncome: 5600/s</string>
+    <string name="initial_upgrade_button_6">Master kitty\nCost: 20000000\nIncome: 31200/s</string>
+    <string name="initial_upgrade_button_7">Kitty overlord\nCost: 330000000\nIncome: 176000/s</string>
 
-    <string name="upgrade_button">&lt;b>%1$s&lt;/b>\nCost: %2$d\nIncome: %3$f/s</string>
+    <string name="upgrade_button">%1$s\nCost: %2$d\nIncome: %3$f/s</string>
 
-    <string name="initial_upgrade_text">Currently owned: 0\nTotal income per second: 0</string>
-    <string name="upgrade_text">Currently owned: %1$d\nTotal income per second: %2$d/s</string>
-    <string name="upgrade_text_double">Currently owned: %1$d\nTotal income per second: %2$f/s</string>
+    <string name="initial_upgrade_text">Currently owned: 0\nTotal income: 0/s</string>
+    <string name="upgrade_text">Currently owned: %1$d\nTotal income: %2$d/s</string>
+    <string name="upgrade_text_double">Currently owned: %1$d\nTotal: %2$.1f/s</string>
 
 </resources>
