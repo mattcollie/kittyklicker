@@ -18,12 +18,7 @@ import com.kitty.kittyklicker.enums.KittyUpgradeEnum;
 import com.kitty.kittyklicker.interfaces.IKitty;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link UpgradeFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link UpgradeFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * UpgradeFragment handles the upgrade Buttons, their dynamic pricing, and associated TextViews
  */
 public class UpgradeFragment extends Fragment {
 
@@ -34,10 +29,9 @@ public class UpgradeFragment extends Fragment {
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment.
+     * Used to create a new instance of this fragment
      *
-     * @return A new instance of fragment UpgradeFragment.
+     * @return A new instance of fragment UpgradeFragment
      */
     public static UpgradeFragment newInstance() {
         UpgradeFragment fragment = new UpgradeFragment();
@@ -53,6 +47,10 @@ public class UpgradeFragment extends Fragment {
         //if (getArguments() != null) {}
     }
 
+
+    /**
+     * Initialises and handles the upgrade Buttons and TextViews
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -67,19 +65,18 @@ public class UpgradeFragment extends Fragment {
         int buttonIndex = 0;
         int textIndex = 0;
 
-        for(int i = 0; i < upgradeTable.getChildCount(); i++) {     // Loop through each TableRow
+        /*
+         * Loop through each TableRow and initialise the upgrade Buttons and TextViews
+         */
+        for(int i = 0; i < upgradeTable.getChildCount(); i++) {
 
             if(!(upgradeTable.getChildAt(i) instanceof TableRow)) continue;
 
             TableRow row = (TableRow) upgradeTable.getChildAt(i);
 
-            System.out.println("Child count: " + row.getChildCount());
-
             for(int j = 0; j < row.getChildCount(); j++) {
 
                 View v = row.getChildAt(j);
-
-                System.out.println("View ID: " + v.getId());
 
                 if(v instanceof Button) {
                     upgradeButtons[buttonIndex] = (Button) v;
@@ -96,9 +93,9 @@ public class UpgradeFragment extends Fragment {
 
         for(final KittyUpgradeEnum upgrade : KittyUpgradeEnum.values()) {
 
-            final int upgradeIndex = i;
+            final int upgradeIndex = i; // final for access within anonymous class
 
-            if((upgradeButtons[i] == null) || (upgradeTextViews[i] == null)) continue;  // Avoids attempts to set button info if null
+            if((upgradeButtons[i] == null) || (upgradeTextViews[i] == null)) continue;                  // Avoids attempts to set/handle button info if null
 
             upgradeButtons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -111,10 +108,9 @@ public class UpgradeFragment extends Fragment {
                         int upgradeCost = (int) (upgrade.getCost() * Math.pow(1.15, upgradeAmount));    // Increase cost with each purchase
 
                         double amountPerSec = upgrade.getAmountPerSec();
-                        double totalIncomePerSec = Math.round(upgrade.getAmountPerSec() * upgradeAmount * 10000)/10000.0;    //rounds to 4 d.p to remove double inaccuracies
+                        double totalIncomePerSec = Math.round(upgrade.getAmountPerSec() * upgradeAmount * 10000)/10000.0;    // Rounds to 4 d.p to remove double inaccuracies
 
-
-                        if((int) totalIncomePerSec == totalIncomePerSec) {     // If whole number, no need to display decimal places
+                        if((int) totalIncomePerSec == totalIncomePerSec) {                              // If whole number, no need to display decimal places
                             upgradeButtons[upgradeIndex].setText(getString(R.string.upgrade_button, upgradeName, upgradeCost, (int) (amountPerSec)));
                             upgradeTextViews[upgradeIndex].setText(getString(R.string.upgrade_text, upgradeAmount, (int) (totalIncomePerSec)));
                         } else {
@@ -131,6 +127,10 @@ public class UpgradeFragment extends Fragment {
         return view;
     }
 
+
+    /**
+     * Initialises kittyMain as an interface with MainActivity
+     */
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -141,6 +141,7 @@ public class UpgradeFragment extends Fragment {
             kittyMain = (IKitty) mainActivity;
         }
     }
+
 
     @Override
     public void onDetach() {
@@ -153,6 +154,8 @@ public class UpgradeFragment extends Fragment {
      * to the activity and potentially other fragments contained in that
      * activity.
      */
+
+
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
     }

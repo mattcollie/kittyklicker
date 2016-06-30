@@ -1,5 +1,8 @@
 package com.kitty.kittyklicker.enums;
 
+/**
+ * Lists data for each of the upgrades
+ */
 public enum KittyUpgradeEnum {
 
     BASIC_KITTY("Regular kitty", 10, 0.4),
@@ -18,10 +21,16 @@ public enum KittyUpgradeEnum {
 
     KITTY_OVERLORD("Kitty overlord", 330000000, 176000.0);
 
+
     private final String upgradeName;
     private final int cost;
     private final double amountPerSec;
 
+    /**
+     * @param upgradeName   the name of the upgrade
+     * @param cost  the count that is required to purchase the upgrade
+     * @param amountPerSec  the count per second which the upgrade provides
+     */
     KittyUpgradeEnum(String upgradeName, int cost, double amountPerSec) {
         this.upgradeName = upgradeName;
         this.cost = cost;

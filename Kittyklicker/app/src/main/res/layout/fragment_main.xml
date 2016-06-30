@@ -4,11 +4,9 @@
     android:layout_height="match_parent"
     tools:context="com.kitty.kittyklicker.tabswipe.fragments.MainFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="MAIN FRAGMENT" />
+        android:layout_height="match_parent" />
 
     <ImageButton
         android:layout_width="273dp"
@@ -19,6 +17,6 @@
         android:scaleType="center"
         android:foreground="@mipmap/ic_launcher"
         android:background="#00ffffff"
-        android:contentDescription="susie's cat" />
+        android:contentDescription="@string/cat_name" />
 
 </FrameLayout>

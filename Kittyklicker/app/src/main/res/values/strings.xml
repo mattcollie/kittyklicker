@@ -20,4 +20,5 @@
     <string name="upgrade_text">Currently owned: %1$d\nTotal income: %2$d/s</string>
     <string name="upgrade_text_double">Currently owned: %1$d\nTotal: %2$.1f/s</string>
 
+    <string name="cat_name">Susie's cat</string>
 </resources>

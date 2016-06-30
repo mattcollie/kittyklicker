@@ -14,26 +14,19 @@ import com.kitty.kittyklicker.R;
 import com.kitty.kittyklicker.interfaces.IKitty;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link MainFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link MainFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * MainFragment handles the main kitty klick Button
  */
 public class MainFragment extends Fragment {
 
     private IKitty kittyMain;
 
-    public MainFragment() {
-        // Required empty public constructor
-    }
+    public MainFragment() {}
+
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Used to create a new instance of this fragment
      *
-     * @return A new instance of fragment MainFragment.
+     * @return A new instance of fragment MainFragment
      */
     public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();
@@ -42,6 +35,7 @@ public class MainFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +43,16 @@ public class MainFragment extends Fragment {
         // if (getArguments() != null) {}
     }
 
+
+    /**
+     * Initialises and handles the kitty Button
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        // handles main kittyklick button
+        // Handles main kitty klick button
         ImageButton kittyButtonEvent = (ImageButton) view.findViewById(R.id.imageButtonKitty);
 
         kittyButtonEvent.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +67,10 @@ public class MainFragment extends Fragment {
         return view;
     }
 
+
+    /**
+     * Initialises kittyMain as an interface with MainActivity
+     */
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -79,10 +81,12 @@ public class MainFragment extends Fragment {
         }
     }
 
+
     @Override
     public void onDetach() {
         super.onDetach();
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
